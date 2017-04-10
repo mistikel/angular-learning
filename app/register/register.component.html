@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit(form.value)">
+  <ul>
+    <li>
+      <label for="registration_username">Username</label>
+      <input type="text" name="registration_username" id="registration_username" formControlName="username">
+    </li>
+    <li>
+      <label for="registration_password">Password</label>
+      <input type="password" name="registration_password" id="registration_password" formControlName="password">
+    </li>
+    <li>
+      <label for="registration_confirm">Confirm Password</label>
+      <input type="password" name="registration_confirm" id="registration_confirm" formControlName="confirm">
+      <div *ngIf="form.hasError('passwordMissMatch')" class="error">Password did not match</div>
+    </li>
+  </ul>
+  <button type="submit" [disabled]="!form.valid">Register</button>
+</form>
+</div>

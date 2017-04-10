@@ -1,0 +1,27 @@
+<nav>
+  <a routerlink="/list">
+    <img src="media/04.png" class="icon" />
+  </a>
+  <a routerLink="/Movies">
+    <img src="media/03.png" class="icon" />
+  </a>
+  <a routerLink="/Series">
+    <img src="media/02.png" class="icon" />
+  </a>
+</nav>
+<section>
+  <header>
+    <h1>Welcome</h1>
+    <p class="description">Add or Remove as you like</p>
+    <a routerLink="/login">Sign Out</a>
+    <mw-menu-item 
+    *ngFor="let menu of menus"
+    [menu]="menu"
+    (delete)="onMediaItemDelete($event)"></mw-menu-item>
+  </header>
+</section>
+<footer>
+  <a routerLink="/add">
+    <img src="media/01.png" class="icon" />
+  </a>
+</footer>

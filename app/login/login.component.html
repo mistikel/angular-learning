@@ -1,0 +1,26 @@
+<h1 class="header">Login</h1>
+<form
+[formGroup] ="form"
+(ngSubmit) ="onSubmit(form.value)">
+    <ul>
+        <li>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" formControlName="name">
+            <div *ngIf="form.controls.name.errors?.pattern" class="error">
+                Name has invalid characters
+            </div>
+        </li>
+        <li>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" formControlName="password">
+            <div *ngIf="form.controls.password.errors?.password" class="error">
+                Must be between 
+                {{form.controls.password.errors?.password.min}} 
+                and 
+                {{form.controls.password.errors?.password.max}}
+            </div>
+        </li>
+    </ul>
+    <button type="submit" [disabled]="!form.valid">Login</button>
+    <a routerLink="/register"><button class="btn" >Register</button></a>
+</form>
